@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natz Portofolio</title>
+
+    <style>
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      .loader-content {
+        text-align: center;
+      }
+      .loader-text {
+        color: #fff;
+        font-size: 2em;
+        font-family: sans-serif;
+        position: relative;
+        display: inline-block;
+      }
+      .loader-text::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: right;
+        animation: loadingLine 2s ease-in-out infinite;
+      }
+      .loader-dots {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 20px;
+      }
+      .loader-dot {
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite ease-in-out;
+      }
+      .loader-dot:nth-child(1) {
+        animation-delay: -0.32s;
+      }
+      .loader-dot:nth-child(2) {
+        animation-delay: -0.16s;
+      }
+      @keyframes loadingLine {
+        0% {
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+        50% {
+          transform: scaleX(1);
+          transform-origin: right;
+        }
+        50.1% {
+          transform: scaleX(0);
+          transform-origin: left;
+        }
+        100% {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
+        }
+        40% {
+          transform: scale(1);
+        }
+      }
+      .loading body {
+        overflow: hidden;
+      }
+      .reveal-text {
+        visibility: visible;
+      }
+      .char,
+      .word {
+        display: inline-block;
+      }
+      /* Custom Cursor Styles */
+      .cursor {
+        position: fixed;
+        pointer-events: none;
+        mix-blend-mode: difference;
+      }
+      .cursor-follower {
+        position: fixed;
+        pointer-events: none;
+        mix-blend-mode: difference;
+      }
+      /* Hide default cursor */
+      body {
+        cursor: none;
+      }
+      .items-text {
+        position: relative;
+        --after-width: 0%;
+        padding: 5px;
+      }
+      .items-text::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        height: 100%;
+        margin: auto;
+        width: var(--after-width); /* Tambahkan tinggi agar terlihat */
+        background: yellow; /* Tambahkan warna agar terlihat */ /* Sesuaikan posisi */
+        left: 0;
+        transition: width 0.5s ease-in-out;
+      }
+      /* Show default cursor on mobile */
+      @media (max-width: 768px) {
+        body {
+          cursor: auto;
+        }
+        .cursor,
+        .cursor-follower {
+          display: none;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-Cf0GjrR7.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-mwiUwYAc.css">
+  </head>
+  <body class="md:px-10 loading">
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Loader -->
+    <div class="loader">
+      <div class="loader-content">
+        <div class="loader-text">Natzsixn</div>
+        <div class="loader-dots">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div
+      class="navbar top-0 z-10 left-0 fixed items-center w-full rounded-md bg-clip-padding backdrop-filter"
+    >
+      <div class="container relative m-auto items-center md:flex px-2 py-3">
+        <div class="logo relative">
+          <span
+            class="text-2xl hidden md:flex sm:text-3xl md:text-4xl absolute font-vogue font-semibold"
+            animate
+            >Natzsixn</span
+          >
+          <h1
+            class="text-[20px] sm:text-[8em] md:text-[10em] lg:text-[12em] font-mentra"
+            animate
+          >
+            Portofolio
+          </h1>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="mobile-menu-btn md:hidden absolute right-4 top-4 text-2xl"
+        >
+          <span class="block w-6 h-0.5 bg-black mb-1"></span>
+          <span class="block w-6 h-0.5 bg-black mb-1"></span>
+          <span class="block w-6 h-0.5 bg-black"></span>
+        </button>
+
+        <div
+          class="menu items-center text-lg md:text-xl lg:text-2xl ml-auto justify-center hidden"
+        >
+          <ul
+            class="flex flex-col md:flex-row font-vogue items-center gap-6 md:gap-10 nav-links"
+          >
+            <li class="font-ofcbook"><a href="">Home</a></li>
+            <li class="font-ofcbook"><a href="">About</a></li>
+            <li class="font-ofcbook"><a href="">Projects</a></li>
+            <li class="font-ofcbook"><a href="">Contact</a></li>
+            <li class="font-ofcbook"><a href="">Footer</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="flex h-[100dvh] head">
+      <div
+        class="flex items mt-0 sm:mt-[12em] md:mt-[14em] lg:mt-[16em] items-center justify-center w-full h-full max-h-full md:max-h-[500px] overflow-hidden content-section"
+      >
+        <h1
+          class="opening absolute md:hidden font-mentra z-[1] m-auto text-[5em]/23 w-full"
+        >
+          HELLO IM <span class="items-text"> NATZ </span>
+        </h1>
+
+        <div
+          class="hidden md:flex container w-full h-full itmes-center justify-center"
+        >
+          <img
+            src="img/download.jpg"
+            class="md:w-full h-full md:h-auto object-cover content-img"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- content about -->
+    <div class="flex items-center mt-[2em] sm:mt-[3em] md:mt-[4em]">
+      <div
+        class="container py-2 mx-auto font-vogue grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4"
+      >
+        <div class="col-span-1 md:col-span-2">
+          <h1
+            class="text-[3.8em] md:text-[4.2em] lg:text-7xl w-full md:w-[400px] reveal-text"
+          >
+            <span class="bg-amber-300 font-grif">Hi...</span> trimakasih sudah
+            berkunjung
+          </h1>
+        </div>
+        <div
+          class="col-span-1 border-t md:border-t-0 md:border-l px-2 border-black pt-4 md:pt-0"
+        >
+          <div class="block border-b-2 border-gray-500 py-2">
+            <h4 class="font-grif text-lg md:text-xl reveal-text">
+              Siapa Natz?
+            </h4>
+            <p class="text-sm para-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+              eligendi aliquid officia veritatis ducimus quasi non, inventore
+              repudiandae fugiat error laudantium debitis deleniti, incidunt
+              libero eum itaque adipisci! Deserunt, nam.
+            </p>
+          </div>
+          <div class="block border-b-2 border-gray-500 py-2">
+            <h4 class="font-grif text-lg md:text-xl reveal-text">
+              Siapa Natz?
+            </h4>
+            <p class="text-sm para-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+              eligendi aliquid officia veritatis ducimus quasi non, inventore
+              repudiandae fugiat error laudantium debitis deleniti, incidunt
+              libero eum itaque adipisci! Deserunt, nam.
+            </p>
+          </div>
+          <div class="block border-b-2 border-gray-500 py-2">
+            <h4 class="font-grif text-lg md:text-xl reveal-text">
+              Siapa Natz?
+            </h4>
+            <p class="text-sm para-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+              eligendi aliquid officia veritatis ducimus quasi non, inventore
+              repudiandae fugiat error laudantium debitis deleniti, incidunt
+              libero eum itaque adipisci! Deserunt, nam.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- product -->
+    <div class="product mt-20 sm:mt-28 md:mt-40">
+      <div class="container mx-auto w-full px-4">
+        <!-- Filter Section -->
+        <div
+          class="flex font-vogue flex-col md:flex-row md:items-center justify-between mb-6"
+        >
+          <h4 class="text-xl font-semibold mb-4 md:mb-0">Filter</h4>
+          <ul class="flex flex-wrap items-center gap-2 sm:gap-4 mt-2 md:mt-0">
+            <li class="mb-2 md:mb-0">
+              <button
+                class="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 cursor-pointer hover:bg-gray-300 rounded-md transition-all duration-300 text-sm sm:text-base"
+              >
+                All
+              </button>
+            </li>
+            <li class="mb-2 md:mb-0">
+              <button
+                class="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 cursor-pointer hover:bg-gray-300 rounded-md transition-all duration-300 text-sm sm:text-base"
+              >
+                Website
+              </button>
+            </li>
+            <li class="mb-2 md:mb-0">
+              <button
+                class="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 cursor-pointer hover:bg-gray-300 rounded-md transition-all duration-300 text-sm sm:text-base"
+              >
+                Editing
+              </button>
+            </li>
+            <li class="mb-2 md:mb-0">
+              <button
+                class="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 cursor-pointer hover:bg-gray-300 rounded-md transition-all duration-300 text-sm sm:text-base"
+              >
+                Design
+              </button>
+            </li>
+            <li class="mb-2 md:mb-0">
+              <button
+                class="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-50 cursor-pointer hover:bg-gray-300 rounded-md transition-all duration-300 text-sm sm:text-base"
+              >
+                Random
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Product Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+        >
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+          <a
+            href="/"
+            class="card p-3 sm:p-4 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="img flex items-center aspect-video overflow-hidden justify-center rounded-md"
+            >
+              <img
+                src="assets/icebear%20fisheye-8mfngsNe.jpg"
+                class="w-full h-full object-cover"
+                alt="Editing 1"
+              />
+            </div>
+            <div class="mt-3 sm:mt-4">
+              <h4 class="text-base sm:text-lg font-semibold">Editing 1</h4>
+              <p class="text-gray-600 text-xs sm:text-sm mt-1">
+                Penjelasan singkat
+              </p>
+              <span class="text-xs text-gray-500 mt-1 sm:mt-2 block"
+                >Editing</span
+              >
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- what i do -->
+    <div class="flex items-center mt-[3em] sm:mt-[4em] md:mt-[6em] what-i-do">
+      <div
+        class="container py-2 mx-auto font-vogue grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4"
+      >
+        <div class="col-span-1">
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl w-full md:w-[300px] reveal-text"
+          >
+            What I Do?
+          </h1>
+        </div>
+        <div
+          class="col-span-1 md:col-span-2 border-t md:border-t-0 md:border-l px-2 border-black pt-4 md:pt-0"
+        >
+          <div
+            class="flex flex-col md:flex-row py-3 items-start md:items-center justify-between border-b border-black"
+          >
+            <div
+              class="flex flex-col p-2 border-b md:border-b-0 md:border-r border-black mb-4 md:mb-0 w-full md:w-1/2"
+            >
+              <h4 class="reveal-text text-lg md:text-xl mb-2">Editing</h4>
+              <p class="para-text text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+                ullam a quas maiores nesciunt eius reiciendis totam laboriosam,
+                explicabo possimus pariatur delectus magnam, veniam repellendus
+                ipsa dolore aliquid sit saepe!
+              </p>
+            </div>
+            <div
+              class="flex flex-col p-2 md:border-r border-black w-full md:w-1/2"
+            >
+              <h4 class="reveal-text text-lg md:text-xl mb-2">Editing</h4>
+              <p class="para-text text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+                ullam a quas maiores nesciunt eius reiciendis totam laboriosam,
+                explicabo possimus pariatur delectus magnam, veniam repellendus
+                ipsa dolore aliquid sit saepe!
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col md:flex-row py-3 items-start md:items-center justify-between"
+          >
+            <div
+              class="flex flex-col p-2 border-b md:border-b-0 md:border-r border-black mb-4 md:mb-0 w-full md:w-1/2"
+            >
+              <h4 class="reveal-text text-lg md:text-xl mb-2">Editing</h4>
+              <p class="para-text text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+                ullam a quas maiores nesciunt eius reiciendis totam laboriosam,
+                explicabo possimus pariatur delectus magnam, veniam repellendus
+                ipsa dolore aliquid sit saepe!
+              </p>
+            </div>
+
+            <div
+              class="flex flex-col p-2 md:border-r border-black w-full md:w-1/2"
+            >
+              <h4 class="reveal-text text-lg md:text-xl mb-2">Editing</h4>
+              <p class="para-text text-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
+                ullam a quas maiores nesciunt eius reiciendis totam laboriosam,
+                explicabo possimus pariatur delectus magnam, veniam repellendus
+                ipsa dolore aliquid sit saepe!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="timelines font-vogue relative min-h-screen flex flex-col justify-center overflow-hidden"
+    >
+      <div
+        class="w-full grid grid-cols-1 md:grid-cols-2 container mx-auto px-4 md:px-6 py-24"
+      >
+        <div class="flex items-center mb-12 md:mb-0">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold reveal-text">
+            My <span class="font-grif">journey</span> Timeline
+          </h1>
+        </div>
+        <div class="flex flex-col justify-center">
+          <!-- Vertical Timeline -->
+          <div class="space-y-8 relative timeline-container">
+            <!-- Timeline Line -->
+            <div
+              class="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-slate-300 to-transparent timeline-line"
+            ></div>
+
+            <!-- Item #1 - 2017 -->
+            <div
+              class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group timeline-item"
+            >
+              <!-- Icon -->
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 timeline-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-shield-lock"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+                  />
+                </svg>
+              </div>
+              <!-- Card -->
+              <div
+                class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-content"
+              >
+                <div class="flex items-center justify-between space-x-2 mb-1">
+                  <div class="font-bold text-slate-900 reveal-text">
+                    Started Hacking Journey
+                  </div>
+                  <time class="text-xs font-medium text-indigo-500">2017</time>
+                </div>
+                <div class="text-slate-500 para-text">
+                  Began exploring the world of hacking and cybersecurity,
+                  learning about system vulnerabilities and security measures.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item #2 - 2019 -->
+            <div
+              class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group timeline-item"
+            >
+              <!-- Icon -->
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 timeline-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-film"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"
+                  />
+                </svg>
+              </div>
+              <!-- Card -->
+              <div
+                class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-content"
+              >
+                <div class="flex items-center justify-between space-x-2 mb-1">
+                  <div class="font-bold text-slate-900 reveal-text">
+                    AMV Editor
+                  </div>
+                  <time class="text-xs font-medium text-indigo-500">2019</time>
+                </div>
+                <div class="text-slate-500 para-text">
+                  Started creating Anime Music Videos (AMV), developing skills
+                  in video editing and visual storytelling.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item #3 - 2020 -->
+            <div
+              class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group timeline-item"
+            >
+              <!-- Icon -->
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 timeline-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-palette"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+                  />
+                  <path
+                    d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z"
+                  />
+                </svg>
+              </div>
+              <!-- Card -->
+              <div
+                class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-content"
+              >
+                <div class="flex items-center justify-between space-x-2 mb-1">
+                  <div class="font-bold text-slate-900 reveal-text">
+                    UI/UX & Graphic Design
+                  </div>
+                  <time class="text-xs font-medium text-indigo-500">2020</time>
+                </div>
+                <div class="text-slate-500 para-text">
+                  Expanded into UI/UX design using Figma and graphic design,
+                  creating user-centered interfaces and visual designs.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item #4 - 2022 -->
+            <div
+              class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group timeline-item"
+            >
+              <!-- Icon -->
+              <div
+                class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 timeline-icon"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-code-slash"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"
+                  />
+                </svg>
+              </div>
+              <!-- Card -->
+              <div
+                class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-content"
+              >
+                <div class="flex items-center justify-between space-x-2 mb-1">
+                  <div class="font-bold text-slate-900 reveal-text">
+                    Started Coding Journey
+                  </div>
+                  <time class="text-xs font-medium text-indigo-500"
+                    >2022 - Present</time
+                  >
+                </div>
+                <div class="text-slate-500 para-text">
+                  Began learning programming and web development, continuously
+                  expanding knowledge and building projects until today.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col items-center mt-[3em] sm:mt-[4em] md:mt-[6em] what-i-do"
+    >
+      <div
+        class="container py-2 mx-auto font-vogue grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4"
+      >
+        <div class="col-span-2">
+          <h1
+            class="font-mentra sm:text-5xl md:text-6xl lg:text-[17em] w-full reveal-text"
+          >
+            NATZSIXN
+          </h1>
+        </div>
+        <div
+          class="col-span-1 md:col-span-1 border-t md:border-t-0 md:border-l px-2 border-black pt-4 md:pt-0"
+        >
+          <div class="block border-b-2 border-gray-500 py-2">
+            <h4 class="font-grif text-lg md:text-xl reveal-text">
+              Siapa Natz?
+            </h4>
+            <p class="text-sm para-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+              eligendi aliquid officia veritatis ducimus quasi non, inventore
+              repudiandae fugiat error laudantium debitis deleniti, incidunt
+              libero eum itaque adipisci! Deserunt, nam.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h4 class="font-grif text-lg md:text-xl">Ikuti Kami</h4>
+        <div class="flex space-x-4 mt-2">
+          <a href="#" class="text-black hover:text-gray-700">
+            <svg
+              class="text-xl"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              width="24"
+              height="24"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.281.058-2.563.334-3.637 1.408-1.074 1.074-1.35 2.356-1.408 3.637-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.281.334 2.563 1.408 3.637 1.074 1.074 2.356 1.35 3.637 1.408 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.281-.058 2.563-.334 3.637-1.408 1.074-1.074 1.35-2.356 1.408-3.637.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.281-.334-2.563-1.408-3.637-1.074-1.074-2.356-1.35-3.637-1.408-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.324c-2.293 0-4.162-1.869-4.162-4.162s1.869-4.162 4.162-4.162 4.162 1.869 4.162 4.162-1.869 4.162-4.162 4.162zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="text-black hover:text-gray-700">
+            <svg
+              class="text-xl"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              width="24"
+              height="24"
+            >
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.719 0-4.92 2.201-4.92 4.917 0 .385.044.76.127 1.122-4.087-.205-7.713-2.164-10.141-5.144-.423.725-.666 1.562-.666 2.457 0 1.694.863 3.188 2.175 4.065-.802-.026-1.558-.246-2.218-.616v.062c0 2.366 1.684 4.342 3.918 4.788-.41.111-.843.171-1.287.171-.314 0-.615-.03-.916-.086.617 1.926 2.407 3.33 4.526 3.368-1.66 1.3-3.757 2.075-6.033 2.075-.392 0-.779-.023-1.158-.067 2.148 1.378 4.7 2.181 7.446 2.181 8.933 0 13.82-7.404 13.82-13.82 0-.21-.005-.42-.014-.63.949-.686 1.77-1.54 2.42-2.513z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="text-black hover:text-gray-700">
+            <svg
+              class="text-xl"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              width="24"
+              height="24"
+            >
+              <path
+                d="M22.23 0h-20.46c-.977 0-1.77.793-1.77 1.77v20.46c0 .977.793 1.77 1.77 1.77h20.46c.977 0 1.77-.793 1.77-1.77v-20.46c0-.977-.793-1.77-1.77-1.77zm-13.538 20.452h-3.077v-10.769h3.077v10.769zm-1.538-12.308c-.987 0-1.788-.801-1.788-1.788s.801-1.788 1.788-1.788 1.788.801 1.788 1.788-.801 1.788-1.788 1.788zm13.538 12.308h-3.077v-5.385c0-1.282-.026-2.933-1.788-2.933-1.788 0-2.062 1.397-2.062 2.841v5.477h-3.077v-10.769h2.949v1.474h.042c.41-.777 1.41-1.597 2.902-1.597 3.1 0 3.677 2.041 3.677 4.697v6.195z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div
+        class="container mx-auto text-center py-4 border-t border-black mt-6"
+      >
+        <p class="text-xs text-gray-600">
+          © 2024 NATZSIXN. All Rights Reserved.
+        </p>
+        <p class="text-xs text-gray-600">
+          Email:
+          <a href="mailto:contact@natzsixn.com" class="underline"
+            >contact@natzsixn.com</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- Script untuk menu mobile -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const menu = document.querySelector(".menu");
+
+        if (mobileMenuBtn && menu) {
+          mobileMenuBtn.addEventListener("click", function () {
+            menu.classList.toggle("hidden");
+            menu.classList.toggle("flex");
+            menu.classList.toggle("flex-col");
+            menu.classList.toggle("absolute");
+            menu.classList.toggle("top-16");
+            menu.classList.toggle("left-0");
+            menu.classList.toggle("w-full");
+            menu.classList.toggle("bg-white");
+            menu.classList.toggle("py-4");
+            menu.classList.toggle("shadow-md");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

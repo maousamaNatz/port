@@ -1,1 +1,0 @@
-Copyright cari di dafont
